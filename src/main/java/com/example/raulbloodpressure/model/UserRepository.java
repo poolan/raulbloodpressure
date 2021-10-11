@@ -1,5 +1,8 @@
 package com.example.raulbloodpressure.model;
 
-public class UserRepository {
+import org.springframework.data.repository.CrudRepository;
 
+
+public interface UserRepository extends CrudRepository<User, Long> {
+	User findByUsername(String username);
 }
