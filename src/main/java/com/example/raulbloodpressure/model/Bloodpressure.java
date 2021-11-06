@@ -25,7 +25,7 @@ public class Bloodpressure {
 
 	public Bloodpressure() {
 	}
-	// ASDF
+	
 
 	public Bloodpressure(int upper, int lower, int pulse, LocalDate measurementDate) {
 		super();

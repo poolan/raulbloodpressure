@@ -14,31 +14,38 @@ import com.example.raulbloodpressure.model.BloodpressureRepository;
 public class BloodPressureController {
 	@Autowired
 	private BloodpressureRepository repository;
-	
+
 	@RequestMapping(value = { "/", "/bloodpressurelist" })
 	public String bloodpressurelist(Model model) {
-		model.addAttributes("bloodpressures", repository.findAll());
-		
+
+		// in code executed by endpoint, information can be placed in
+		// the model that is displayed on the html page
+		model.addAttribute("bloodpressures", repository.findAll());
+
+		// returns the file name to be displayed -
+		// spring adds a .html extension itself, it can't be put here
+
 		return "bloodpressurelist";
 	}
-	
+
 	@RequestMapping(value = "/add")
 	public String addBloodpressure(Model model) {
 		model.addAttribute("bloodpressure", new Bloodpressure());
 		return "addBloodpressure";
 	}
-	
+
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String saveBloodpressure(Bloodpressure bloodpressure) {
 		repository.save(bloodpressure);
 		return "redirect:bloodpressurelist";
 	}
-	
+
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	public String deleteBloodpressure(@PathVariable("id") Long BloodpressureId, Model model) {
 		repository.deleteById(BloodpressureId);
+		// after deleting, page returns to the bloodpressurelist.html
 		return "redirect../bloodpressurelist";
+		
 	}
-	
 
 }
