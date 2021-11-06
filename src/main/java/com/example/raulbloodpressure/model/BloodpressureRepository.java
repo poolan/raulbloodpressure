@@ -1,5 +1,10 @@
 package com.example.raulbloodpressure.model;
 
-public class BloodpressureRepository {
+import java.util.List;
 
+import org.springframework.data.repository.CrudRepository;
+
+public interface BloodpressureRepository extends CrudRepository<Bloodpressure, Long> {
+
+	List<Bloodpressure> findById(Long id);
 }
