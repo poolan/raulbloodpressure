@@ -6,5 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface BloodpressureRepository extends CrudRepository<Bloodpressure, Long> {
 
-	List<Bloodpressure> findById(Long id);
+	List<Bloodpressure> findById(long id);
 }

@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Blood Pressure List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Blood Pressure records</h1>
+	<table>
+		<tbody>
+			<tr>
+				<th>Date</th>
+				<th>Upper</th>
+				<th>Lower</th>
+				<th>Pulse</th>
+			</tr>
+			<tr th:each="bloodpressure: ${bloodpressures}">
+
+				<td
+					th:text="${#temporals.format(bloodpressure.measurementDate, 'dd.MM.yyyy')}"></td>
+				<td th:text="${bloodpressure.upper}"></td>
+				<td th:text="${bloodpressure.lower}"></td>
+				<td th:text="${bloodpressure.pulse}"></td>
+				<td><a th:href="@{/delete/{id}(id=${bloodpressure.id})}"
+					class="btn btn-danger">Delete</a></td>
+				<td><a th:href="@{/modify/{id}(id=${bloodpressure.id})}"
+					class="btn btn-warning">Modify</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<a href="/add">Add Blood Pressure</a>
+</body>
+</html>

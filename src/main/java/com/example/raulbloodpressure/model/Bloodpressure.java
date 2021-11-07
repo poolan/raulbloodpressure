@@ -7,11 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity // ASDF
+@Entity
 public class Bloodpressure {
 
-	@Id // ASDF
-	@GeneratedValue(strategy = GenerationType.AUTO) // ASDF
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private int upper;
 	private int lower;

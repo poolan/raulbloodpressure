@@ -15,8 +15,8 @@ public class BloodPressureController {
 	@Autowired
 	private BloodpressureRepository repository;
 
-	@RequestMapping(value = { "/", "/bloodpressurelist" })
-	public String bloodpressurelist(Model model) {
+	@RequestMapping(value = { "/", "/home" })
+	public String bloodpressureList(Model model) {
 
 		// in code executed by endpoint, information can be placed in
 		// the model that is displayed on the html page
@@ -25,26 +25,27 @@ public class BloodPressureController {
 		// returns the file name to be displayed -
 		// spring adds a .html extension itself, it can't be put here
 
-		return "bloodpressurelist";
+		return "home";
 	}
 
 	@RequestMapping(value = "/add")
 	public String addBloodpressure(Model model) {
-		model.addAttribute("bloodpressure", new Bloodpressure());
-		return "addBloodpressure";
+		model.addAttribute("bloodpressures", new Bloodpressure());
+		return "addbloodpressure";
 	}
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String saveBloodpressure(Bloodpressure bloodpressure) {
 		repository.save(bloodpressure);
-		return "redirect:bloodpressurelist";
+		// after saving, page returns to the home.html
+		return "redirect:home";
 	}
 
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	public String deleteBloodpressure(@PathVariable("id") Long BloodpressureId, Model model) {
 		repository.deleteById(BloodpressureId);
-		// after deleting, page returns to the bloodpressurelist.html
-		return "redirect../bloodpressurelist";
+		// after deleting, page returns to the last page which is home.html
+		return "redirect../";
 		
 	}
 
