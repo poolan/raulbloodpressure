@@ -22,6 +22,7 @@ public class BloodPressureApp {
 	public static void main(String[] args) {
 		SpringApplication.run(BloodPressureApp.class, args);
 	}
+	// Execution starts from this main method
 
 	@Bean
 	public CommandLineRunner bloodDemo(BloodpressureRepository repository) {

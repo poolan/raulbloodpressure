@@ -11,6 +11,8 @@
 	<div>
 		<form th:object="${bloodpressures}" th:action="@{../save}" action="#"
 			method="post">
+			<label for= "id"></label>
+			<input type= "hidden" id="id" th:field="*{id}" readonly= "readonly" />
 			<label for="mDate">Date</label> <input type="date"
 				id="mDate" th:field="*{measurementDate}" />
 			<div style="clear: both; display: block; height: 10px;"></div>

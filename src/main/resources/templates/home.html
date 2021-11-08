@@ -26,8 +26,8 @@
 				<td th:text="${bloodpressure.pulse}"></td>
 				<td><a th:href="@{/delete/{id}(id=${bloodpressure.id})}"
 					class="btn btn-danger">Delete</a></td>
-				<td><a th:href="@{/modify/{id}(id=${bloodpressure.id})}"
-					class="btn btn-warning">Modify</a></td>
+				<td><a th:href="@{/edit/{id}(id=${bloodpressure.id})}"
+					class="btn btn-warning">Edit</a></td>
 			</tr>
 		</tbody>
 	</table>
