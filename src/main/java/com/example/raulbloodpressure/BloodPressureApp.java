@@ -17,6 +17,7 @@ import com.example.raulbloodpressure.model.BloodpressureRepository;
 
 public class BloodPressureApp {
 	private static final Logger log = LoggerFactory.getLogger(BloodPressureApp.class);
+	// we only need one logger in the app. No need to alter log settings
 	
 	public static void main(String[] args) {
 		SpringApplication.run(BloodPressureApp.class, args);
@@ -29,7 +30,9 @@ public class BloodPressureApp {
 			repository.save(new Bloodpressure(95, 70, 70, LocalDate.of(2021, 5, 15)));
 			repository.save(new Bloodpressure(102, 80, 81, LocalDate.of(2021, 8, 21)));
 			repository.save(new Bloodpressure(93, 65, 68, LocalDate.of(2021, 10, 01)));
-
+			
+			// here we code some data for the db and add it. 
+			
 			log.info("fetch all blood pressures");
 			for (Bloodpressure bloodpressure : repository.findAll()) {
 				log.info(bloodpressure.toString());

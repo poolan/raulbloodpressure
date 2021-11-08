@@ -16,6 +16,7 @@ import com.example.raulbloodpressure.model.BloodpressureRepository;
 public class BloodPressureController {
 	@Autowired
 	private BloodpressureRepository repository;
+	// @Autowired enables the interaction between the controller and the repository
 
 	@RequestMapping(value = { "/", "/home" })
 	public String bloodpressureList(Model model) {
@@ -30,25 +31,26 @@ public class BloodPressureController {
 		return "home";
 	}
 
+	// add a bloodpressure
 	@RequestMapping(value = "/add")
 	public String addBloodpressure(Model model) {
 		model.addAttribute("bloodpressures", new Bloodpressure(0, 0, 0, LocalDate.now()));
 		return "addbloodpressure";
 	}
 
+	// save the bloodpressure
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String saveBloodpressure(Bloodpressure bloodpressure) {
 		repository.save(bloodpressure);
 		// after saving, page returns to the home.html
 		return "redirect:home";
 	}
-
+	// for deleting bloodpressure
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	public String deleteBloodpressure(@PathVariable("id") Long BloodpressureId, Model model) {
 		repository.deleteById(BloodpressureId);
 		// after deleting, page returns to the last page which is home.html
-		return "redirect../";
-		
+		return "redirect:home";
 	}
 
 }

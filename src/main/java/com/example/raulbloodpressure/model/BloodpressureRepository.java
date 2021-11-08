@@ -6,5 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface BloodpressureRepository extends CrudRepository<Bloodpressure, Long> {
 
-	List<Bloodpressure> findByid(Long id);
+	List<Bloodpressure> findByid(Long id); 
+	// findByid executes the line SELECT FROM Bloodpressure WHERE id= ""; the name of the method matter
 }

@@ -7,9 +7,9 @@
 	th:href="@{css/bootstrap.min.css}" />
 </head>
 <body>
-	<h1>Add Blood Pressure</h1>
+	<h1>Edit Blood Pressure</h1>
 	<div>
-		<form th:object="${bloodpressures}" th:action="@{save}" action="#"
+		<form th:object="${bloodpressures}" th:action="@{../save}" action="#"
 			method="post">
 			<label for="mDate">Date</label> <input type="date"
 				id="mDate" th:field="*{measurementDate}" />
