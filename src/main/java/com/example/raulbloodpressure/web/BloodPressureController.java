@@ -1,5 +1,7 @@
 package com.example.raulbloodpressure.web;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,7 +32,7 @@ public class BloodPressureController {
 
 	@RequestMapping(value = "/add")
 	public String addBloodpressure(Model model) {
-		model.addAttribute("bloodpressures", new Bloodpressure());
+		model.addAttribute("bloodpressures", new Bloodpressure(0, 0, 0, LocalDate.now()));
 		return "addbloodpressure";
 	}
 

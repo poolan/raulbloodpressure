@@ -30,7 +30,7 @@ public class BloodPressureApp {
 			repository.save(new Bloodpressure(102, 80, 81, LocalDate.of(2021, 8, 21)));
 			repository.save(new Bloodpressure(93, 65, 68, LocalDate.of(2021, 10, 01)));
 
-			log.info("fetch all students");
+			log.info("fetch all blood pressures");
 			for (Bloodpressure bloodpressure : repository.findAll()) {
 				log.info(bloodpressure.toString());
 			}

@@ -7,15 +7,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 public class Bloodpressure {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private int upper;
 	private int lower;
 	private int pulse;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate measurementDate;
 	// ALL THE ATTRIBUTES AND THEIR VALUE TYPES, ID IS A UNIQUE IDENTIFIER NUMBER OF
 	// ONE UNIT OF INFORMATION, UPPER IS THE HIGHEST BLOODPRESSURE OF THE SAME UNIT,
