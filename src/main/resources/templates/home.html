@@ -6,10 +6,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"
 	th:href="@{css/bootstrap.min.css}" />
+<!-- import the css to the html -->
 </head>
 <body>
 	<h1>Blood Pressure records</h1>
-	<table>
+	<table class="table table-striped">
 		<tbody>
 			<tr>
 				<th>Date</th>
@@ -31,6 +32,7 @@
 			</tr>
 		</tbody>
 	</table>
-	<a href="/add">Add Blood Pressure</a>
+	<a href="/add" class="btn btn-success">Add Blood Pressure</a>
+	<!-- the href redirects the button to the add section in the controller and executes it -->
 </body>
 </html>

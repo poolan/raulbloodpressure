@@ -6,17 +6,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-@Entity
+@Entity // represents a table in a relational db
+@Table(name="MyRecords") // annotation to rename the table; also is possible to change column names with @Column (name="");
 public class Bloodpressure {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Id // primary key of the table
+	@GeneratedValue(strategy = GenerationType.AUTO) // auto increments the value of the id (pk) everytime we insert a new value 
 	private Long id;
-	private int upper;
-	private int lower;
-	private int pulse;
+	private int upper, lower, pulse;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate measurementDate;
 	// ALL THE ATTRIBUTES AND THEIR VALUE TYPES, ID IS A UNIQUE IDENTIFIER NUMBER OF
@@ -84,6 +84,6 @@ public class Bloodpressure {
 		return "BloodPressure [id=" + id + ", upper=" + upper + ", lower=" + lower + ", pulse=" + pulse
 				+ ", measurementDate =" + measurementDate + "]";
 	}
-	// ASDF
+	
 
 }

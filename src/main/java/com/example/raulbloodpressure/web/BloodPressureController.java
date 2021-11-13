@@ -16,10 +16,9 @@ import com.example.raulbloodpressure.model.BloodpressureRepository;
 @Controller // mark class as a Spring web MVC controller, we don't need @ResponseBody when
 			// using Thymeleaf templates
 public class BloodPressureController {
-	@Autowired
+	@Autowired // this enables the interaction between the controller and the repository
 	private BloodpressureRepository repository;
-	// @Autowired enables the interaction between the controller and the repository
-
+	
 	// @RequestMapping maps the URLs to controller methods
 	@RequestMapping(value = { "/", "/home" })
 	public String bloodpressureList(Model model) {
@@ -29,8 +28,7 @@ public class BloodPressureController {
 		model.addAttribute("bloodpressures", repository.findAll());
 
 		// returns the file name to be displayed -
-		// spring adds a .html extension itself, it can't be put here
-
+		// spring adds a .html extension itself, it can't be put here, in this case returns home.html
 		return "home";
 	}
 
@@ -41,7 +39,7 @@ public class BloodPressureController {
 		return "addbloodpressure";
 	}
 
-	// save the bloodpressure
+	// save the bloodpressure, handles the submission of the form
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String saveBloodpressure(Bloodpressure bloodpressure) {
 		repository.save(bloodpressure);
@@ -49,7 +47,7 @@ public class BloodPressureController {
 		return "redirect:home";
 	}
 
-	// for deleting bloodpressure
+	// for deleting bloodpressure, the annotation @PathVariable extracts the id from the URL
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	public String deleteBloodpressure(@PathVariable("id") Long BloodpressureId, Model model) {
 		repository.deleteById(BloodpressureId);
@@ -61,7 +59,8 @@ public class BloodPressureController {
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
 	public String editBloodpressure(@PathVariable("id") Long BloodpressureId, Model model) {
 
-		Optional<Bloodpressure> Bloodpressure = repository.findById(BloodpressureId);
+		Optional<Bloodpressure> Bloodpressure = repository.findById(BloodpressureId); 
+		// Optional prevents null pointer exception situations
 		model.addAttribute("bloodpressures", repository.findById(BloodpressureId));
 		return "edit";
 	}
