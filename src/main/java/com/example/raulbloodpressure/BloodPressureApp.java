@@ -13,7 +13,7 @@ import com.example.raulbloodpressure.model.Bloodpressure;
 import com.example.raulbloodpressure.model.BloodpressureRepository;
 
 
-@SpringBootApplication // ASDF
+@SpringBootApplication
 
 public class BloodPressureApp {
 	// Logger is final because we just need one and there is no need to alter it. 

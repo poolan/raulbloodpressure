@@ -21,8 +21,9 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency> <!-- this allow us to use database libraries, JPA means Java persistence(save info in db) API,
-		JPA is a standard and the implementation is called hibernate which produces SQL automatically -->
+		</dependency> <!-- this allow us to use database libraries, JPA means Java persistence(save 
+			info in db) API, JPA is a standard and the implementation is called hibernate 
+			which produces SQL automatically -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -30,7 +31,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency> <!--  we need thymeleaf for the views -->
+		</dependency> <!-- we need thymeleaf for the views -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -38,16 +39,19 @@
 
 		<dependency>
 			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId> 
+			<artifactId>postgresql</artifactId>
 		</dependency> <!-- needed for heroku deployment -->
 
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope> <!-- h2 is a development database, only stores in computer memory, not useful for real 
-			solutions, info gets deleted after restarting program -->
-		</dependency>
-		<dependency>
+		<!-- <dependency> <groupId>com.h2database</groupId> <artifactId>h2</artifactId> 
+			<scope>runtime</scope> </dependency> --><!-- h2 is a development database, only stores in computer memory, not 
+			useful for real solutions, info gets deleted after restarting program, it 
+			is currently disabled because we switched to MariaDB -->
+
+		<!--  <dependency>
+			<groupId>org.mariadb.jdbc</groupId>
+			<artifactId>mariadb-java-client</artifactId>
+		</dependency>  enables mariadb as database -->
+		<dependency> 
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
