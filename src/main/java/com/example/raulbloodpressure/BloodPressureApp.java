@@ -15,7 +15,6 @@ import com.example.raulbloodpressure.model.User;
 import com.example.raulbloodpressure.model.UserRepository;
 
 @SpringBootApplication
-
 public class BloodPressureApp {
 	// Logger is final because we just need one and there is no need to alter it.
 	private static final Logger log = LoggerFactory.getLogger(BloodPressureApp.class);
@@ -40,8 +39,8 @@ public class BloodPressureApp {
 			// Create users: admin/admin user/user
 			User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
 			User user2 = new User("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ADMIN");
-			//urepository.save(user1);
-			//urepository.save(user2);
+			urepository.save(user1);
+			urepository.save(user2);
 
 			log.info("fetch all blood pressures");
 			for (Bloodpressure bloodpressure : repository.findAll()) {
