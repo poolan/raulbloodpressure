@@ -32,6 +32,11 @@
 			</tr>
 		</tbody>
 	</table>
+	<div>
+		<form th:action="@{/Logout}" method="post">
+			<input type="submit" values="Sign Out"/>
+		</form>
+	</div>
 	<a href="/add" class="btn btn-success">Add Blood Pressure</a>
 	<!-- the href redirects the button to the add section in the controller and executes it -->
 </body>
